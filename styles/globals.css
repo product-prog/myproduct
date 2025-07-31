@@ -1,42 +1,205 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@layer components {
+  /* Custom Fonts */
+  .font-playfair {
+    font-family: "Playfair Display", serif;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  /* Hero Section */
+  .hero-section {
+    min-height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .text-shadow-glamour {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Glamour Button */
+  .glamour-btn {
+    background: linear-gradient(135deg, #e8b4a0 0%, #d4a5a5 100%);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(232, 180, 160, 0.3);
+  }
+
+  .glamour-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 180, 160, 0.4);
+  }
+
+  /* Glamour Gradient */
+  .glamour-gradient {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  }
+
+  /* Champagne Background */
+  .champagne-bg {
+    background: linear-gradient(135deg, #f8f4f0 0%, #f5f1ed 100%);
+  }
+
+  /* Rose Gold Accent */
+  .rose-gold-accent {
+    color: #e8b4a0;
+  }
+
+  /* Glamour Card */
+  .glamour-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glamour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Section Divider */
+  .section-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #e8b4a0, #d4a5a5);
+    margin: 20px auto;
+  }
+
+  /* Fade In Animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Navigation */
+  nav {
+    transition: all 0.3s ease;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Form Styles */
+  .form-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .form-input:focus {
+    border-color: #e8b4a0;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Testimonial Cards */
+  .testimonial-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Stats */
+  .stats-item {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e8b4a0;
+  }
+
+  .stats-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 3rem;
+    }
+
+    .hero-section p {
+      font-size: 1.1rem;
+    }
+
+    .glamour-btn {
+      padding: 10px 24px;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #e8b4a0;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4a5a5;
   }
 }
