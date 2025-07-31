@@ -84,14 +84,14 @@ export default function Home() {
       icon: <Star className="w-8 h-8" />,
       title: "Expérience VIP",
       description:
-        "Profitez d'un accès privilégié et d'une attention particulière.",
+        "Profitez d&apos;un accès privilégié et d&apos;une attention particulière.",
       price: "À partir de 199€",
     },
   ];
 
   const testimonials = [
     {
-      text: "Une expérience absolument exceptionnelle. Le professionnalisme et l'élégance sont au rendez-vous.",
+      text: "Une expérience absolument exceptionnelle. Le professionnalisme et l&apos;élégance sont au rendez-vous.",
       author: "Client Satisfait",
       rating: 5,
     },
@@ -113,7 +113,7 @@ export default function Home() {
         <title>DivineSensual - Élégance & Sensualité</title>
         <meta
           name="description"
-          content="Découvrez un univers de raffinement et d'exclusivité"
+          content="Découvrez un univers de raffinement et d&apos;exclusivité"
         />
       </Head>
 
@@ -409,7 +409,7 @@ export default function Home() {
             >
               <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
                 Prêt à Vivre{" "}
-                <span className="rose-gold-accent">l'Exception</span> ?
+                <span className="rose-gold-accent">l&apos;Exception</span> ?
               </h2>
               <p className="font-inter text-xl text-gray-300 max-w-2xl mx-auto mb-8">
                 Contactez-moi dès maintenant pour discuter de vos désirs et
@@ -516,7 +516,7 @@ export default function Home() {
                   Politique de Confidentialité
                 </a>
                 <a href="#" className="hover:text-white transition-colors">
-                  Conditions d'Utilisation
+                  Conditions d&apos;Utilisation
                 </a>
               </div>
               <div className="mt-8 text-gray-500 font-inter">
