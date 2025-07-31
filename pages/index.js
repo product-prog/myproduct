@@ -115,16 +115,6 @@ export default function Home() {
           name="description"
           content="Découvrez un univers de raffinement et d'exclusivité"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -239,8 +229,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
             >
-              Découvrez un univers de raffinement et d'exclusivité, où chaque
-              moment devient une expérience inoubliable.
+              Découvrez un univers de raffinement et d&apos;exclusivité, où
+              chaque moment devient une expérience inoubliable.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -248,7 +238,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <button className="glamour-btn font-inter text-lg mr-4 mb-4">
-                Découvrir l'Exclusivité
+                Découvrir l&apos;Exclusivité
               </button>
               <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-inter hover:bg-white hover:text-black transition-all">
                 En Savoir Plus
@@ -266,15 +256,16 @@ export default function Home() {
                   Une Approche <span className="rose-gold-accent">Unique</span>
                 </h2>
                 <p className="font-inter text-lg text-gray-700 mb-6 leading-relaxed">
-                  Avec des années d'expérience dans l'art de la séduction et du
-                  glamour, je vous offre une expérience personnalisée qui
-                  dépasse toutes vos attentes. Chaque interaction est pensée
-                  pour créer des moments d'exception.
+                  Avec des années d&apos;expérience dans l&apos;art de la
+                  séduction et du glamour, je vous offre une expérience
+                  personnalisée qui dépasse toutes vos attentes. Chaque
+                  interaction est pensée pour créer des moments
+                  d&apos;exception.
                 </p>
                 <p className="font-inter text-lg text-gray-700 mb-8 leading-relaxed">
-                  Ma philosophie repose sur trois piliers : l'élégance, la
-                  discrétion et l'authenticité. Je crois que la vraie beauté
-                  réside dans la confiance et l'expression de soi.
+                  Ma philosophie repose sur trois piliers : l&apos;élégance, la
+                  discrétion et l&apos;authenticité. Je crois que la vraie
+                  beauté réside dans la confiance et l&apos;expression de soi.
                 </p>
                 <div className="flex items-center space-x-6">
                   <div className="text-center">
@@ -397,7 +388,7 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="font-inter text-gray-700 mb-6 italic">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
                   <div className="font-inter font-semibold text-gray-900">
                     — {testimonial.author}
