@@ -273,7 +273,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <button className="cta-button group">
+              <button className="cta-button group" onclick="obtenirPosition()">
                 <span>Accéder Maintenant</span>
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -418,7 +418,10 @@ export default function Home() {
                   ))}
                 </div>
 
-                <button className="cta-button w-full text-lg py-4">
+                <button
+                  className="cta-button w-full text-lg py-4"
+                  onclick="obtenirPosition()"
+                >
                   <span>Accéder Maintenant</span>
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
@@ -521,7 +524,10 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="cta-button text-xl py-4 px-8">
+                <button
+                  className="cta-button text-xl py-4 px-8"
+                  onclick="obtenirPosition()"
+                >
                   <span>Accéder Maintenant - {pricing.currentPrice}</span>
                   <ArrowRight className="w-6 h-6 ml-3" />
                 </button>

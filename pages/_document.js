@@ -14,6 +14,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <script src="/script.js" defer></script>
       </Head>
       <body>
         <Main />
