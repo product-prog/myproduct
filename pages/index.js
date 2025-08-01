@@ -11,12 +11,20 @@ import {
   Phone,
   Instagram,
   Twitter,
+  Play,
+  ArrowRight,
+  Check,
+  Sparkles,
+  Zap,
+  Eye,
+  Lock,
 } from "lucide-react";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState({});
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [videoPlaying, setVideoPlaying] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,90 +73,101 @@ export default function Home() {
     };
   }, []);
 
-  const services = [
+  const features = [
     {
-      icon: <Crown className="w-8 h-8" />,
-      title: "Contenu Exclusif Premium",
-      description:
-        "Accédez à du contenu unique et personnalisé, créé spécialement pour vous.",
-      price: "À partir de 49€",
+      icon: <Sparkles className="w-8 h-8" />,
+      title: "Contenu Exclusif",
+      description: "Accès à du contenu privé et personnalisé",
     },
     {
-      icon: <Heart className="w-8 h-8" />,
-      title: "Sessions Personnalisées",
-      description:
-        "Réservez une session privée adaptée à vos désirs et préférences.",
-      price: "Sur devis",
+      icon: <Lock className="w-8 h-8" />,
+      title: "100% Discret",
+      description: "Confidentialité totale garantie",
     },
     {
-      icon: <Star className="w-8 h-8" />,
-      title: "Expérience VIP",
-      description:
-        "Profitez d&apos;un accès privilégié et d&apos;une attention particulière.",
-      price: "À partir de 199€",
+      icon: <Zap className="w-8 h-8" />,
+      title: "Accès Immédiat",
+      description: "Contenu disponible instantanément",
     },
   ];
 
   const testimonials = [
     {
-      text: "Une expérience absolument exceptionnelle. Le professionnalisme et l&apos;élégance sont au rendez-vous.",
-      author: "Client Satisfait",
+      text: "Une expérience absolument incroyable. Le contenu est de qualité exceptionnelle.",
+      author: "Alex M.",
       rating: 5,
+      verified: true,
     },
     {
-      text: "Un service de qualité supérieure avec une attention aux détails remarquable.",
-      author: "Membre VIP",
+      text: "Discrétion parfaite et contenu premium. Exactement ce que je cherchais.",
+      author: "Thomas L.",
       rating: 5,
+      verified: true,
     },
     {
-      text: "Discrétion, qualité et sophistication. Exactement ce que je recherchais.",
-      author: "Client Premium",
+      text: "Service professionnel et contenu de haute qualité. Très satisfait.",
+      author: "Marc D.",
       rating: 5,
+      verified: true,
     },
   ];
+
+  const pricing = {
+    originalPrice: "199€",
+    currentPrice: "99€",
+    savings: "50% OFF",
+    features: [
+      "Accès complet au contenu exclusif",
+      "Vidéos HD en qualité premium",
+      "Photos privées haute résolution",
+      "Contenu mis à jour régulièrement",
+      "Support prioritaire",
+      "Accès à vie",
+    ],
+  };
 
   return (
     <>
       <Head>
-        <title>DivineSensual - Élégance & Sensualité</title>
+        <title>DivineSensual - Contenu Exclusif Premium</title>
         <meta
           name="description"
-          content="Découvrez un univers de raffinement et d&apos;exclusivité"
+          content="Découvrez un univers de contenu exclusif et privé de haute qualité"
         />
       </Head>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900">
         {/* Navigation */}
-        <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md">
+        <nav className="fixed top-0 w-full z-50 bg-black/30 backdrop-blur-lg border-b border-white/10">
           <div className="container mx-auto px-6 py-4">
             <div className="flex justify-between items-center">
               <div className="font-playfair text-2xl font-bold text-white">
-                Divine<span className="rose-gold-accent">Sensual</span>
+                Divine<span className="text-pink-400">Sensual</span>
               </div>
               <div className="hidden md:flex space-x-8">
                 <a
-                  href="#accueil"
-                  className="text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#hero"
+                  className="text-white hover:text-pink-400 transition-colors"
                 >
                   Accueil
                 </a>
                 <a
-                  href="#apropos"
-                  className="text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#features"
+                  className="text-white hover:text-pink-400 transition-colors"
                 >
-                  À Propos
+                  Avantages
                 </a>
                 <a
-                  href="#services"
-                  className="text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#pricing"
+                  className="text-white hover:text-pink-400 transition-colors"
                 >
-                  Services
+                  Tarifs
                 </a>
                 <a
-                  href="#contact"
-                  className="text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#testimonials"
+                  className="text-white hover:text-pink-400 transition-colors"
                 >
-                  Contact
+                  Avis
                 </a>
               </div>
               <button
@@ -170,32 +189,31 @@ export default function Home() {
                 </svg>
               </button>
             </div>
-            {/* Mobile Menu */}
             {mobileMenuOpen && (
-              <div className="md:hidden mt-4 pb-4">
+              <div className="md:hidden mt-4 pb-4 space-y-2">
                 <a
-                  href="#accueil"
-                  className="block py-2 text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#hero"
+                  className="block py-2 text-white hover:text-pink-400 transition-colors"
                 >
                   Accueil
                 </a>
                 <a
-                  href="#apropos"
-                  className="block py-2 text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#features"
+                  className="block py-2 text-white hover:text-pink-400 transition-colors"
                 >
-                  À Propos
+                  Avantages
                 </a>
                 <a
-                  href="#services"
-                  className="block py-2 text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#pricing"
+                  className="block py-2 text-white hover:text-pink-400 transition-colors"
                 >
-                  Services
+                  Tarifs
                 </a>
                 <a
-                  href="#contact"
-                  className="block py-2 text-white hover:text-[#E8B4A0] transition-colors"
+                  href="#testimonials"
+                  className="block py-2 text-white hover:text-pink-400 transition-colors"
                 >
-                  Contact
+                  Avis
                 </a>
               </div>
             )}
@@ -204,299 +222,320 @@ export default function Home() {
 
         {/* Hero Section */}
         <section
-          id="accueil"
-          className="hero-section flex items-center justify-center"
+          id="hero"
+          className="hero-section flex items-center justify-center relative overflow-hidden"
         >
-          <div
-            className="hero-bg"
-            style={{
-              background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)",
-              transform: `translateY(${parallaxOffset}px)`,
-            }}
-          />
-          <div className="container mx-auto px-6 text-center text-white z-10">
-            <motion.h1
-              className="font-playfair text-5xl md:text-7xl font-bold mb-6 text-shadow-glamour"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Élégance & <span className="rose-gold-accent">Sensualité</span>
-            </motion.h1>
-            <motion.p
-              className="font-inter text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-purple-900/30 to-pink-900/50 z-10" />
+          <div className='absolute inset-0 bg-[url(&apos;data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&apos;)] opacity-20' />
+
+          <div className="container mx-auto px-6 text-center text-white z-20 relative">
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
             >
-              Découvrez un univers de raffinement et d&apos;exclusivité, où
-              chaque moment devient une expérience inoubliable.
+              <div className="inline-flex items-center bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-full px-6 py-2 mb-6">
+                <Sparkles className="w-4 h-4 mr-2 text-pink-400" />
+                <span className="text-sm font-medium">
+                  Contenu Exclusif Premium
+                </span>
+              </div>
+            </motion.div>
+
+            <motion.h1
+              className="font-playfair text-5xl md:text-7xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              Découvrez Mon
+              <br />
+              <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                Univers Privé
+              </span>
+            </motion.h1>
+
+            <motion.p
+              className="font-inter text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-gray-300 leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              Accédez à du contenu exclusif et privé de haute qualité, créé
+              spécialement pour vous. Une expérience unique et mémorable vous
+              attend.
             </motion.p>
+
             <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
-              <button className="glamour-btn font-inter text-lg mr-4 mb-4">
-                Découvrir l&apos;Exclusivité
+              <button className="cta-button group">
+                <span>Accéder Maintenant</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-inter hover:bg-white hover:text-black transition-all">
-                En Savoir Plus
+
+              <button
+                className="video-preview-button"
+                onClick={() => setVideoPlaying(true)}
+              >
+                <Play className="w-5 h-5 mr-2" />
+                Voir l&apos;Aperçu
               </button>
+            </motion.div>
+
+            <motion.div
+              className="mt-8 flex items-center justify-center space-x-8 text-sm text-gray-400"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            >
+              <div className="flex items-center">
+                <Shield className="w-4 h-4 mr-2 text-green-400" />
+                <span>100% Discret</span>
+              </div>
+              <div className="flex items-center">
+                <Zap className="w-4 h-4 mr-2 text-yellow-400" />
+                <span>Accès Immédiat</span>
+              </div>
+              <div className="flex items-center">
+                <Crown className="w-4 h-4 mr-2 text-pink-400" />
+                <span>Contenu Premium</span>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* About Section */}
-        <section id="apropos" className="py-20 bg-white">
+        {/* Features Section */}
+        <section
+          id="features"
+          className="py-20 bg-gradient-to-b from-gray-900 to-black"
+        >
           <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className={`fade-in ${isVisible[0] ? "visible" : ""}`}>
-                <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                  Une Approche <span className="rose-gold-accent">Unique</span>
-                </h2>
-                <p className="font-inter text-lg text-gray-700 mb-6 leading-relaxed">
-                  Avec des années d&apos;expérience dans l&apos;art de la
-                  séduction et du glamour, je vous offre une expérience
-                  personnalisée qui dépasse toutes vos attentes. Chaque
-                  interaction est pensée pour créer des moments
-                  d&apos;exception.
-                </p>
-                <p className="font-inter text-lg text-gray-700 mb-8 leading-relaxed">
-                  Ma philosophie repose sur trois piliers : l&apos;élégance, la
-                  discrétion et l&apos;authenticité. Je crois que la vraie
-                  beauté réside dans la confiance et l&apos;expression de soi.
-                </p>
-                <div className="flex items-center space-x-6">
-                  <div className="text-center">
-                    <div className="font-playfair text-3xl font-bold rose-gold-accent">
-                      500+
-                    </div>
-                    <div className="font-inter text-sm text-gray-600">
-                      Clients Satisfaits
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-playfair text-3xl font-bold rose-gold-accent">
-                      5★
-                    </div>
-                    <div className="font-inter text-sm text-gray-600">
-                      Note Moyenne
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-playfair text-3xl font-bold rose-gold-accent">
-                      100%
-                    </div>
-                    <div className="font-inter text-sm text-gray-600">
-                      Discrétion
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`fade-in ${isVisible[1] ? "visible" : ""}`}>
-                <div className="w-full h-96 bg-gradient-to-br from-rose-gold to-rose-gold-dark rounded-lg shadow-2xl flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <div className="text-6xl mb-4">✨</div>
-                    <div className="font-playfair text-2xl">
-                      Image Placeholder
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section id="services" className="py-20 glamour-gradient">
-          <div className="container mx-auto px-6">
-            <div
+            <motion.div
               className={`text-center mb-16 fade-in ${
-                isVisible[2] ? "visible" : ""
+                isVisible[0] ? "visible" : ""
               }`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
               <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
-                Services <span className="rose-gold-accent">Premium</span>
+                Pourquoi Choisir{" "}
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Mon Contenu
+                </span>
               </h2>
-              <p className="font-inter text-xl text-gray-300 max-w-2xl mx-auto">
-                Chaque service est conçu pour vous offrir une expérience unique
-                et mémorable, dans le plus grand respect de votre intimité.
+              <p className="font-inter text-xl text-gray-400 max-w-2xl mx-auto">
+                Une expérience unique et personnalisée qui dépasse toutes vos
+                attentes
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {services.map((service, index) => (
-                <div
+              {features.map((feature, index) => (
+                <motion.div
                   key={index}
-                  className={`glamour-card p-8 rounded-lg text-center fade-in ${
-                    isVisible[3 + index] ? "visible" : ""
+                  className={`feature-card fade-in ${
+                    isVisible[1 + index] ? "visible" : ""
                   }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
-                  <div className="rose-gold-accent mb-4 flex justify-center">
-                    {service.icon}
-                  </div>
+                  <div className="feature-icon">{feature.icon}</div>
                   <h3 className="font-playfair text-2xl font-bold mb-4 text-white">
-                    {service.title}
+                    {feature.title}
                   </h3>
-                  <p className="font-inter text-gray-300 mb-6">
-                    {service.description}
+                  <p className="font-inter text-gray-400 leading-relaxed">
+                    {feature.description}
                   </p>
-                  <div className="font-playfair text-xl font-bold rose-gold-accent mb-4">
-                    {service.price}
-                  </div>
-                  <button className="glamour-btn w-full">
-                    Réserver Maintenant
-                  </button>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 champagne-bg">
+        {/* Pricing Section */}
+        <section
+          id="pricing"
+          className="py-20 bg-gradient-to-b from-black to-gray-900"
+        >
           <div className="container mx-auto px-6">
-            <div
+            <motion.div
               className={`text-center mb-16 fade-in ${
-                isVisible[6] ? "visible" : ""
+                isVisible[4] ? "visible" : ""
               }`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                Témoignages <span className="rose-gold-accent">Clients</span>
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
+                Accès{" "}
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Premium
+                </span>
               </h2>
-              <p className="font-inter text-xl text-gray-700 max-w-2xl mx-auto">
-                Découvrez ce que nos clients disent de leur expérience avec
-                nous.
+              <p className="font-inter text-xl text-gray-400 max-w-2xl mx-auto">
+                Offre limitée - Ne manquez pas cette opportunité exclusive
               </p>
-            </div>
+            </motion.div>
+
+            <motion.div
+              className="max-w-4xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="pricing-card relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-gradient-to-l from-pink-500 to-purple-500 text-white px-4 py-2 rounded-bl-lg font-bold">
+                  {pricing.savings}
+                </div>
+
+                <div className="text-center mb-8">
+                  <div className="flex items-center justify-center mb-4">
+                    <span className="text-3xl text-gray-400 line-through mr-4">
+                      {pricing.originalPrice}
+                    </span>
+                    <span className="text-5xl font-bold text-white">
+                      {pricing.currentPrice}
+                    </span>
+                  </div>
+                  <p className="text-gray-400">
+                    Accès à vie - Pas de renouvellement
+                  </p>
+                </div>
+
+                <div className="space-y-4 mb-8">
+                  {pricing.features.map((feature, index) => (
+                    <div key={index} className="flex items-center">
+                      <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="cta-button w-full text-lg py-4">
+                  <span>Accéder Maintenant</span>
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </button>
+
+                <div className="text-center mt-4">
+                  <p className="text-sm text-gray-500">
+                    🔒 Paiement sécurisé • ⚡ Accès immédiat • 🛡️ Garantie 30
+                    jours
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section
+          id="testimonials"
+          className="py-20 bg-gradient-to-b from-gray-900 to-black"
+        >
+          <div className="container mx-auto px-6">
+            <motion.div
+              className={`text-center mb-16 fade-in ${
+                isVisible[5] ? "visible" : ""
+              }`}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
+                Ce Qu&apos;en Disent{" "}
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Mes Membres
+                </span>
+              </h2>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className={`bg-white p-8 rounded-lg shadow-lg fade-in ${
-                    isVisible[7 + index] ? "visible" : ""
+                  className={`testimonial-card fade-in ${
+                    isVisible[6 + index] ? "visible" : ""
                   }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
                 >
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-5 h-5 fill-current text-[#E8B4A0]"
+                        className="w-5 h-5 fill-current text-yellow-400"
                       />
                     ))}
                   </div>
-                  <p className="font-inter text-gray-700 mb-6 italic">
+                  <p className="font-inter text-gray-300 mb-6 italic leading-relaxed">
                     &quot;{testimonial.text}&quot;
                   </p>
-                  <div className="font-inter font-semibold text-gray-900">
-                    — {testimonial.author}
+                  <div className="flex items-center justify-between">
+                    <div className="font-inter font-semibold text-white">
+                      {testimonial.author}
+                    </div>
+                    {testimonial.verified && (
+                      <div className="flex items-center text-green-400 text-sm">
+                        <Check className="w-4 h-4 mr-1" />
+                        Vérifié
+                      </div>
+                    )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="py-20 glamour-gradient">
-          <div className="container mx-auto px-6">
-            <div
-              className={`text-center mb-16 fade-in ${
-                isVisible[10] ? "visible" : ""
-              }`}
+        {/* Final CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-pink-900 via-purple-900 to-pink-900">
+          <div className="container mx-auto px-6 text-center">
+            <motion.div
+              className="max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
               <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
-                Prêt à Vivre{" "}
-                <span className="rose-gold-accent">l&apos;Exception</span> ?
+                Prêt à Découvrir Mon{" "}
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  Univers Privé
+                </span>
+                ?
               </h2>
-              <p className="font-inter text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                Contactez-moi dès maintenant pour discuter de vos désirs et
-                réserver votre expérience personnalisée.
+              <p className="font-inter text-xl text-gray-300 mb-8 leading-relaxed">
+                Rejoignez des milliers de membres satisfaits et accédez à du
+                contenu exclusif de haute qualité.
+                <br />
+                <span className="text-pink-400 font-semibold">
+                  Offre limitée - Ne manquez pas cette opportunité !
+                </span>
               </p>
-            </div>
 
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className={`fade-in ${isVisible[11] ? "visible" : ""}`}>
-                <form className="space-y-6">
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Votre Nom"
-                      className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-[#E8B4A0]"
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      placeholder="Votre Email"
-                      className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-[#E8B4A0]"
-                    />
-                  </div>
-                  <div>
-                    <select className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[#E8B4A0]">
-                      <option value="">Choisir un Service</option>
-                      <option value="premium">Contenu Exclusif Premium</option>
-                      <option value="session">Session Personnalisée</option>
-                      <option value="vip">Expérience VIP</option>
-                    </select>
-                  </div>
-                  <div>
-                    <textarea
-                      rows={4}
-                      placeholder="Votre Message"
-                      className="w-full p-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:border-[#E8B4A0]"
-                    ></textarea>
-                  </div>
-                  <button type="submit" className="glamour-btn w-full text-lg">
-                    Envoyer le Message
-                  </button>
-                </form>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button className="cta-button text-xl py-4 px-8">
+                  <span>Accéder Maintenant - {pricing.currentPrice}</span>
+                  <ArrowRight className="w-6 h-6 ml-3" />
+                </button>
 
-              <div className={`fade-in ${isVisible[12] ? "visible" : ""}`}>
-                <div className="space-y-8">
-                  <div className="flex items-center space-x-4 text-white">
-                    <Mail className="w-6 h-6 text-[#E8B4A0]" />
-                    <div>
-                      <div className="font-inter font-semibold">Email</div>
-                      <div className="text-gray-300">
-                        contact@divinesensual.com
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4 text-white">
-                    <Phone className="w-6 h-6 text-[#E8B4A0]" />
-                    <div>
-                      <div className="font-inter font-semibold">Téléphone</div>
-                      <div className="text-gray-300">+33 1 23 45 67 89</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4 text-white">
-                    <Shield className="w-6 h-6 text-[#E8B4A0]" />
-                    <div>
-                      <div className="font-inter font-semibold">
-                        Confidentialité
-                      </div>
-                      <div className="text-gray-300">
-                        100% Discrétion Garantie
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-8">
-                    <div className="font-inter font-semibold text-white mb-4">
-                      Suivez-moi
-                    </div>
-                    <div className="flex space-x-4">
-                      <Instagram className="w-8 h-8 text-white hover:text-[#E8B4A0] cursor-pointer transition-colors" />
-                      <Twitter className="w-8 h-8 text-white hover:text-[#E8B4A0] cursor-pointer transition-colors" />
-                    </div>
-                  </div>
+                <div className="text-center">
+                  <p className="text-sm text-gray-400">
+                    🔒 Paiement 100% sécurisé
+                  </p>
+                  <p className="text-sm text-gray-400">
+                    ⚡ Accès immédiat après paiement
+                  </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -505,7 +544,7 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center">
               <div className="font-playfair text-2xl font-bold text-white mb-4">
-                Divine<span className="rose-gold-accent">Sensual</span>
+                Divine<span className="text-pink-400">Sensual</span>
               </div>
               <div className="section-divider"></div>
               <div className="flex flex-wrap justify-center space-x-8 text-gray-400 font-inter">
