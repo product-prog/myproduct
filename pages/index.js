@@ -233,9 +233,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-6"
+              className="mb-6 mt-20"
             >
-              <div className="inline-flex items-center bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-full px-6 py-2 mb-6">
+              <div className="inline-flex items-center bg-pink-500/20 backdrop-blur-sm border border-pink-400/30 rounded-full px-6 py-2 mb-6 relative z-30">
                 <Sparkles className="w-4 h-4 mr-2 text-pink-400" />
                 <span className="text-sm font-medium">
                   Contenu Exclusif Premium
